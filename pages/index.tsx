@@ -1,15 +1,38 @@
-import Link from 'next/link'
-import Layout from '../components/Layout'
+import Head from "next/head";
+import styles from "../styles/Home.module.css";
 
-const IndexPage = () => (
-  <Layout title="Home | Next.js + TypeScript Example">
-    <h1>Hello Next.js 👋</h1>
-    <p>
-      <Link href="/about">
-        <a>About</a>
-      </Link>
-    </p>
-  </Layout>
-)
+export default function Home() {
+  return (
+    <div className={styles.container}>
+      <Head>
+        <title>Home</title>
+        <meta name="description" content="Stare here" />
+      </Head>
 
-export default IndexPage
+      <main className={styles.main}>
+        <h1 className={styles.title}>I'm a Next.js app!</h1>
+
+        <p className={styles.description}>
+          I'm using Sentry's newest SDK,{" "}
+          <code className={styles.code} style={{ fontSize: "100%" }}>
+            @sentry/nextjs
+          </code>
+        </p>
+
+        <div className={styles.grid} style={{ maxWidth: "1000px" }}>
+          <a href="/dogs" className={styles.card}>
+            <h2 style={{ margin: 0 }}>Show me the dogs &rarr;</h2>
+          </a>
+
+          <a
+            href="https://sentry.io/organizations/FILL-IN-ORG-SLUG/performance/summary/?project=FILL-IN-PROJ-ID-NUM&query=&showTransactions=recent&statsPeriod=24h&transaction=%2F"
+            className={styles.card}
+          >
+            <h2 style={{ margin: 0 }}>See transactions &rarr;</h2>
+          </a>
+        </div>
+      </main>
+      <script src="/fetch.js"></script>
+    </div>
+  );
+}
